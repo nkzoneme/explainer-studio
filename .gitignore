@@ -23,3 +23,6 @@ explainer/channels/*/
 explainer/shorts/styles/*.json
 !explainer/shorts/styles/_example.json
 .playwright-mcp/
+# research working notes and reports stay local (they quote private channel numbers)
+research_notes/
+reports/

@@ -54,7 +54,7 @@ Picture is timed to the voice, never the reverse.
    python3 kit/tools/vo_build.py vo/<slug>/ch02_w vo/<slug>/ch02_p.mp3
    ```
    This writes `ch02_w.mp3`, `.words.json`, `.WORDS.txt` (word@second, for you to read) and `.levels.js` (mouth sync). It prints words per minute and every pause over 0.6 s. Pauses are where beats can change.
-4. Check: no word missing or doubled against the text, pace inside the style's `script.wpm` (**default** 150–175 wpm), no pause over 1.2 s inside a sentence. If a chapter is bad, regenerate that chapter only.
+4. Check: no word missing or doubled against the text, pace inside the style's `script.wpm` (**default** 150–175 wpm), no pause over 1.2 s inside a sentence, and **a pause of 0.4–0.8 s before the peak line and before each re-hook line** (Story card). The pause comes from the text (an ellipsis or a paragraph break before the line; the model takes no SSML breaks); read it in `WORDS.txt`. It is where the hold before the payoff and `K.dip` go (`CRAFT_RULES.md` §15). If a chapter is bad, regenerate that chapter only.
 
 ## Step 2. Beat plan
 
@@ -62,7 +62,8 @@ One HyperFrames project per chapter: `film/<slug>/chNN/`. Inside it, 4–8 **bea
 
 - First line: the channel slug and three numbers for the chapter: planned full-frame changes per minute, host-visible share, presenter-mode share, each next to the style's target range (see "The host is a tool" below).
 - Beat, time range, set (background, the anchor object that stays), transition in.
-- Shot list of the beat: start time, framing (wide / close on the object / full-frame insert: map, photo, chart, number, text card / reaction) and the host's mode in that shot (none / presenter / actor / corner).
+- Shot list of the beat: start time, framing (wide / close on the object / full-frame insert: map, photo, chart, number, text card / reaction), the host's mode in that shot (none / presenter / actor / corner), what the shot is made of (real photo or footage / proof capture / drawn world / growing diagram / card with words) and its **why** in one clause: what the viewer learns or feels from it. A shot with no why is cut.
+- One **hero** shot per chapter, marked in the list: the chapter's biggest picture on its most important sentence. The film's peak (Story card in `SCRIPT.md`) is the hero of its chapter.
 - Per sentence: the word that triggers each visual, what appears, what sound it makes.
 
 Rules for the plan. The set, illustration and label rules come from the brief that produced our best film. The numbers for shots, modes, the opening and the ending come from the channel style; the defaults quoted here came from 21 competitor videos across several niches (playbook §4):
@@ -73,9 +74,11 @@ Rules for the plan. The set, illustration and label rules come from the brief th
   - Full-frame insert: a full-size layer above the set, switched on with `tl.set(insert, { opacity: 1 }, t)` and off again the same way. Set the set's own wrapper to opacity 0 for that stretch, so nothing readable sits hidden under the insert. Entrances go on the insert's children, not on the layer.
   - Cut on the trigger word or 0.12 s before it. A plain cut gets no sound of its own.
 - **Change mode at the style's `mode_change_s`** (**default** every 30–45 s). A mode is what kind of picture it is: characters in a scene, a diagram, a map, a real photo or footage, a document or screen, a big number, a full-screen text card of 5 words or fewer on a turn line, a chapter card, a metaphor cutaway. Which modes the channel leans on, and in what shares, is its `media_mix`; how many text cards a chapter may have is its `typography` (**default** at most one). More than 30 s of host-plus-diagram is the look the client rejected, in every channel. Do not use the same interrupt twice running.
-- **Change set only between beats**, with a whip-pan, wipe or zoom-through that starts 0.12 s before the beat's first word.
+- **Change set only between beats**, with a whip-pan, wipe or zoom-through that starts 0.12 s before the beat's first word. Each seam enters the next set through something already on screen; three to five kinds in a film (recipes and eases: `CRAFT_RULES.md` §15).
+- **Choose what the shot is made of before its layout** (`kit/VISUAL_SOURCES.md`): the real thing → the thing drawn as a world the camera moves through → a diagram that grows part by part → a card with words. A card with words is a proof insert of 2–3 s with one marked phrase of 8 words or fewer; **at most 1 shot in 4 of a chapter, never two in a row**. A grey mock screen where the real page or a drawn scene could be is not a shot.
+- **The hero of every shot fills at least 40 % of the frame's height or width**, and a film uses at least three grounds, not one from first frame to last (`CRAFT_RULES.md` §15–16 lists the tells to plan around).
 - **Illustrate the exact sentence.** "A few cents per chip" is a chip with one small coin dropping on it. "A toll booth on the mobile industry" is a toll booth with phones queuing through. Never a generic icon.
-- **Wrong-context check for library art.** Every reused image from `film/assets/img/` must match the sentence's real object; `film/assets/img/MANIFEST.json` lists where each set and prop may be used. An image showing another place, plane, brand or era than the sentence names is redrawn or replaced, never reused. At G4 a fresh agent reviews meaning from the contact sheets and the SRT only.
+- **Wrong-context check for library art.** Every reused image from `film/assets/img/` must match the sentence's real object; `film/assets/img/MANIFEST.json` lists where each set and prop may be used. An image showing another place, plane, brand or era than the sentence names is redrawn or replaced, never reused. The picture review (Step 4, item 8) catches what slips through.
 - **Draw it when you can**: SVG that builds itself line by line (a building, a circuit on a blueprint, an arrow joining two named things, a red X over the exact object being negated).
 - A new visual idea every 1–4 s. No empty or frozen picture longer than 1 s. (This is about props and drawings. It does not replace the shot rule: our films already had 23–28 small events a minute and still looked static.)
 - **Every chapter opens on a new picture in its first second**: an establishing shot of the place or object the chapter is about, a date or place card, or the object full frame. Never the host standing where the last chapter left him.
@@ -222,6 +225,8 @@ Run from the chapter folder. Look at every image the tools produce; a passing co
 6. `python3 ../../../kit/tools/qa_pace.py out/chNN_raw.mp4 --channel <slug>`. It prints the channel's targets from `style.json` (or says it fell back to the defaults: at least 10 per minute, chapter 1 at least 14 in the first 60 s, median gap 6 s or less, gaps over 12 s need a reason, none over 20 s). Every printed long gap matches a reason in the plan. If it reads LOW, add shots (punch-ins, full-frame inserts); do not add props. If it reads HIGH, the chapter is busier than the channel's style: merge shots or hold a build longer.
 7. Pull a contact sheet from the rendered MP4 (ffmpeg, 2 frames per second) and compare against the plan: every sentence has its picture, on its word. On the same sheet count the frames with the host and the frames where he presents, and the frames of each picture type: the shares must match the plan's first line and sit inside the style's `host` and `media_mix` ranges.
 
+8. **Picture review** (`kit/REVIEW_PASS.md`; about 5 s of tool time per chapter). `python3 ../../../kit/tools/qa_review.py out/chNN_raw.mp4 --words ../../../vo/<slug>/chNN_w.words.json`, open the phone sheet, write the stranger sentences, then the notes as `t · where · problem → exact change · what stays`, ranked P0/P1/P2. Fix every P0 and every `unanswered` sentence; two passes at most. Chapter 1 and the joined film also get the fresh-eyes agent with the fixed brief (REVIEW_PASS §5). Append the chapter's notes to `film/<slug>/REVIEW.md`. Passing items 1–7 with a P0 open is not a passing chapter.
+
 Report honestly what you could not check: you did not listen, so sound character, masking and comic timing are unverified until the human hears it.
 
 ## Thumbnails (per video, made with the chapters; 2 agent hours and 0.50 USD)
@@ -254,11 +259,14 @@ Report honestly what you could not check: you did not listen, so sound character
 - [ ] The mode changes within the style's `mode_change_s`, and the plan names each change; the picture types follow its `media_mix`.
 - [ ] The chapter opens on a new picture. Chapter 1 opens on the thumbnail's object with no logo, title card or host in the first sentence.
 - [ ] Every sentence has its own picture on its word; named real entities appear as real media.
+- [ ] The plan gives every shot its why and marks one hero shot; at most 1 shot in 4 is a card with words and no two are in a row; every hero fills 40 % of the frame.
+- [ ] The picture review ran on the render: no P0 open, `unanswered` empty or explained, notes in `REVIEW.md`.
 - [ ] `check` passed; SFX bus 12–18 dB under the voice; hits per minute inside the style's range; no freeze over 1 s; chapter length = last word + 0.6 s.
 - [ ] Last chapter only: the style's end-screen plate (length and clear area) with the voice pitching one named video.
 - [ ] You have listed what you could not check (you cannot listen).
 
 ### G4 film review: what slipped through chapter QA (17/11/2026; check these on every film)
+- **A film of cards on one ground (18/11/2026).** Two films passed every QA script while 11 of the first 24 frames were a text card on the same dark ground, some heroes filled under a tenth of the frame and no source line could be read at phone width. Run `python3 kit/tools/qa_review.py final/final.mp4 --srt final/film.srt` on the joined film and give its sheets to the fresh-eyes agent (`REVIEW_PASS.md` §5); its answer to "do the first three tiles show the promise?" goes in the G4 report.
 - **One-frame black flashes at scene changes.** A template bug spread the same flash to 5 chapters of one film. Scan with `ffmpeg -vf blackdetect=d=0.03:pix_th=0.10` on the final film; any hit that is not a deliberate fade gets fixed at the source template, then every chapter built from it is re-rendered.
 - **The photo does not match its label.** A stock "hotel lobby" carried an OMNI sign under an "EXCALIBUR" label. Look at every real photo at full size against its caption. When signage names another brand, use a drawn prop instead.
 - **The end plate freezes.** `qa_freeze` on the last chapter catches 1.5 s holds. Keep `breathe`/`float` running to the last frame.

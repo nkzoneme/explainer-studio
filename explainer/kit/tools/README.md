@@ -36,3 +36,18 @@ Output in `film/<slug>/final/retention/` (`retention_map.md/.json`, frame grabs 
 - `fetch_media.py`: GFDL-only files now `free: false` with `reason`; dual-licensed (GFDL plus CC or PD) stay free. Existing CREDITS.json rows are not rewritten.
 - `kit.js` edit mode: `sfxGain` defaults to 0.6 and values above 1.0 are ignored with a console warning. Basis: the edit-mode test ran at 0.6 and measured 15.4 dB under the voice (target 12-18); 1.5 would land about 7 dB under. 1.5 stays valid for legacy mode only. `explainer-direct/SKILL.md` lines 122 and 127 still say 1.5 for new films and need that sentence changed by the skill owner.
 - `qa_film.py`: new checks `factcheck` (FAIL if `research/**/<film>/FACTCHECK.md` is missing, has no rows, or any row is UNVERIFIED) and `hook` (qa_hook on chapter 1; title taken from the SCRIPT heading, or `--title`).
+
+# Added 18/11/2026 (repo study: `research_flow/REFERENCE_REPOS.md`)
+
+## qa_script.py: script lint before any voice
+```
+python3 kit/tools/qa_script.py research/<video>/SCRIPT.md --channel my_channel [--wpm 160] [--no-card] [--json] [--spoken spoken.txt]
+```
+Reads the `> ` spoken lines under each `## Chapter N` heading and the `## Story card` block. Exit 1 on: a sentence over 30 words, a first sentence over 15, contrast turns per minute under the style's `script.contrast_per_min_min` (default 1.0), more questions per chapter than `script.questions_per_chapter_max` (default 1) or two in a row, an ad-read word in the first 60 s, a missing Story card slot. Warnings: 75 s with no turn, "and then" links, a chapter ending on a summary, under 2 numbers in a chapter, peak outside 55–90 % of the runtime, re-hooks over 4 minutes apart. `--spoken` writes the narration alone (one blank line between chapters) for the cold read. `--no-card` is for scripts written before the Story card existed. Tried on four of our scripts: two passed the counts, two failed (0.27 and 0.78 turns per minute, sentences of 31–42 words). Slots, shapes and the cold-read brief: `research_flow/STORY_SHAPES.md`.
+
+## qa_review.py: review sheets at phone width
+```
+python3 kit/tools/qa_review.py film/<slug>/chNN/out/chNN_raw.mp4 --words vo/<slug>/chNN_w.words.json [--out DIR]
+python3 kit/tools/qa_review.py film/<slug>/final/final.mp4 --srt film/<slug>/final/film.srt [--max 96]
+```
+One frame about a second after every full-frame change (the `qa_pace.py` detector; entrances are over by then) plus a second frame 70 % into any framing held over 8 s, 24 tiles per sheet: `review_beats_NN.jpg` (480 px, with the sentence spoken at that moment), `review_phone_NN.jpg` (360 px, 1:1) and `review.json` with `unanswered` (sentences of 2 s or more during which under 1.2 % of the picture changed). About 5 s for a chapter, 45 s for a 14-minute film. It lays out and measures; the judging is `kit/REVIEW_PASS.md`.

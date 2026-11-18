@@ -10,8 +10,10 @@ Every number has a source tag:
 - **[ref]** seen in a reference video and confirmed by measurement.
 - **[std]** standard animation practice, not measured here.
 - **[meas]** measured on 15/11/2026 on 21 competitor videos and two test films with `tools/qa_pace.py`, YouTube captions and contact sheets.
+- **[hf]** read in the HyperFrames skill references (`motion.md`, `story.md`, `spec.md`, `review.md`) on 18/11/2026: the renderer authors' rules, not measured on our films. Each is an experiment until our own data agrees (`research_flow/REFERENCE_REPOS.md`).
+- **[sheet]** seen on our own films' review sheets, 18/11/2026 (`REVIEW_PASS.md`).
 
-**Universal or per channel.** Sections 2–8, 11, 12 (mouth, blinks, idle life, no dead second, entrance recipes, consequences, stagger, exact-sentence illustration, real media), the sync and loudness rules of section 1 and the HyperFrames mechanics of section 9 hold for every channel. The numbers marked **(default)** — SFX density, music, shot rate, beat and mode rhythm, text cards, host shares, the opening and the end plate — are only the defaults: each channel's `explainer/channels/<slug>/style.json` sets its own from its competitors (skill `explainer-channel-style`; schema and defaults in `explainer/channels/README.md`).
+**Universal or per channel.** Sections 2–8, 11, 12 (mouth, blinks, idle life, no dead second, entrance recipes, consequences, stagger, exact-sentence illustration, real media), the sync and loudness rules of section 1 and the HyperFrames mechanics of section 9 hold for every channel. Sections 15 and 16 (seams, hero shots, tells) hold for every channel too. The numbers marked **(default)** — SFX density, music, shot rate, beat and mode rhythm, text cards, host shares, the opening and the end plate — are only the defaults: each channel's `explainer/channels/<slug>/style.json` sets its own from its competitors (skill `explainer-channel-style`; schema and defaults in `explainer/channels/README.md`).
 
 Gemini's sound tables were not used: of 133 claims checked, 33 were wrong and 13 only partly right, including whole invented SFX tracks for two videos that have none.
 
@@ -240,6 +242,43 @@ Whenever he is visible in any mode, `talk`, `blinks` and `breathe` still run (ru
 
 ---
 
+## 15. Every seam has a cause, and every chapter has one hero shot
+
+- **Enter the next set through something already on screen** [hf]. A set change that starts from nothing reads as the next slide. Recipes, all seek-safe (mechanisms in `VISUAL_SOURCES.md` §1):
+
+| Seam | How | When |
+|---|---|---|
+| Object becomes the world | the anchor object grows past the frame in about 0.65 s, its surroundings blur about 15 px, its fill is the next ground | the next beat happens inside that object (a server, a cockpit, a factory floor) |
+| Zoom through | an opening on screen (a door, a screen, a lens) scales from about 8 % to 250 % in 0.35 s on a strong ease-in | going from the outside to the inside |
+| Match cut | one shape holds its place and size for a single-frame swap while everything round it changes | two things that share a shape (a key card and a boarding pass, a dial and a clock) |
+| Carry across | the result of this beat shrinks to about 0.6 and lands inside the next set as a prop | a number or object the next beat keeps using |
+| Whip | 0.13–0.3 s smear, text blurred no more than 10 px | a jump in place or time, announced by the voice |
+| Dip cut | the outgoing frame darkens about 40 % for 3 frames, then a hard cut | a deliberate hard turn ("But.") |
+
+- **Three to five kinds of seam in a film**, each caused by something on screen; at most a third of the seams between beats are hard cuts; never the same seam twice running (rule 9) [hf].
+- **Ease by role** [hf]: arrivals `expo.out` or `power4.out`; camera moves and colour floods `power2.inOut`; exits and zoom-throughs `power3.in`. Exits are 40–50 % shorter than the matching entrance. The next element starts when the previous one is 30–50 % done. The same `power2.out` at 0.5 s on everything is the flat default.
+- **Hold 0.3–0.75 s before the payoff** [hf]: the picture and the bed go quiet (`K.dip`), then the hit. The process plays fast; the payoff plays at normal speed.
+- **One hero shot per chapter**, named in the beat plan: the biggest picture of the chapter, on its most important sentence. It is where the budget goes (a build, a real clip, a generated clip, the one 3D reveal). The film's peak (Story card) is the hero shot of its chapter.
+- **The hero of any shot fills at least 40 % of the frame's height or width** [hf; sheet: our weakest frames had a hero under a tenth of the frame]. Too many things to fit: cut things, never shrink them.
+- **Worlds.** A film visits several grounds, each with its own background, light and scale, never one ground from the first frame to the last [hf; sheet]. Default: at least three in a film. A channel's dark or paper ground is its home, not its only room.
+
+## 16. Tells of a generated film
+
+A viewer does not name these; they read the film as cheap and leave. Check the list on the review sheets (`REVIEW_PASS.md` §3) and add any new default a first render shows to the channel's STYLE.md "what we never do".
+
+- **A card with words standing in for a scene** [sheet]: a quote card, a form, a date card, a headline crop, a label alone. More than 1 frame in 4 on a review sheet, or two in a row, is a slideshow. Show the thing; bring the document in for 2–3 s with one phrase marked.
+- **A dark void with a small thing floating in the middle** [hf; sheet].
+- **A grey mock screen** (a fake chat, a fake booking page, bars for text) where the real page, the real object or a drawn scene could be [hf; sheet].
+- **Three cards in a row**, icons in circles, side-by-side panels as the whole picture [hf].
+- **Every scene entering the same way**, or the same move beat after beat; everything centred; everything fading and sliding up [hf].
+- **Text that keeps moving after it lands.** A landed title, number or label is dead still: no float, no creeping scale. The motion moves to the next element, the camera or the world behind it [hf]. This narrows rule 5: the float is for waiting props in a scene, never for text; the slow camera push and the host's breathing stay.
+- **The whole diagram at once.** One part per beat, each when it is named, across the back half of the shot; everything on screen in the first quarter and then frozen reads as a slide [hf].
+- **A narrator repeating the on-screen text word for word** [hf].
+- **Text nobody can read on a phone**: anything meant to be read under 28 px at 1080 (2.6 % of the short side), or held shorter than 0.5 s + 0.3 s a word [hf]. Too many words: cut words, never shrink type.
+- **Glow, bloom, floating particles as decoration** [hf].
+
+---
+
 ## Not adopted, and why
 
 | Idea | Why not |
@@ -252,6 +291,10 @@ Whenever he is visible in any mode, `talk`, `blinks` and `breathe` still run (ru
 | A whoosh or sting on every cut | With a cut every 3–6 s it would add 10–20 sounds a minute on top of 60–75 event sounds. Cuts inside a beat are silent. |
 | Music bed copied from the documentary references | Different genre (footage + motion graphics). Not what the client compared. |
 | Glass panels, 3D tilts, film-gate frames | Confirmed in the references, but they belong to the documentary look, not ours. |
+| "Never hard-cut: always animate the transition" (a Manim skill) | Our measured competitors cut hard inside a beat every 3–6 s. Hard cuts stay inside beats; rule 15 covers the seams between sets. |
+| "Breathing and floating loops look generated" applied to the host | HyperFrames itself exempts a character's idle breath (acting). Ours is measured from the film the client preferred. The rule is adopted for text only (rule 16). |
+| Mounting HyperFrames registry components as they come | They bring their own ground, fonts and colours (tested 18/11/2026). Port the mechanism or re-skin the installed copy (`VISUAL_SOURCES.md` §1). |
+| A score out of 10 for a chapter or a script | A score finds nothing to fix. Reviews produce notes with an exact change (`REVIEW_PASS.md`). |
 
 ## Quick numbers
 
@@ -277,3 +320,10 @@ Whenever he is visible in any mode, `talk`, `blinks` and `breathe` still run (ru
 | Mode change | default every 30–45 s; at most one text card per chapter |
 | Host | default visible 40–60 % of a film (plan the lower half), presenter mode ≤ 25 % and ≤ 12 s at a time; per channel in `style.json`; never in frame 0 (all channels) |
 | End-screen plate | default last 8–12 s, half the frame clear, voice pitches one video |
+| Hero of a shot | at least 40 % of the frame's height or width |
+| Text meant to be read | 28 px or more at 1080; held 0.5 s + 0.3 s a word; a landed line does not move |
+| Document on screen | a proof insert of 2–3 s with one marked phrase of 8 words or fewer; at most 1 card frame in 4 |
+| Seams | 3–5 kinds per film, each entered through an object on screen; at most a third hard cuts |
+| Hold before the payoff | 0.3–0.75 s |
+| Grounds | at least 3 in a film |
+| Hero shot | one per chapter, named in the plan; generated clips at most 3 per film and 2 USD |

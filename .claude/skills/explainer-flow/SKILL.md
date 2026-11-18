@@ -10,8 +10,8 @@ This skill is the order of work and the gates. How to do each step lives in the 
 | Step | Skill / tool | Output |
 |---|---|---|
 | Pick, remake map, packaging | `explainer-research` Stage 2R (radar only for hot-lane) | `research/remake/<slug>/REMAKE_MAP.md`, `TITLES.md` |
-| Sources, fact-check, script | `explainer-research` Stage 3 | `research/<video>/SOURCES.md`, `CLAIMS.md`, `FACTCHECK.md`, `SCRIPT.md`, G2 risk sheet |
-| Voice, ch1, chapters, master | `explainer-direct` | `film/<video>/`, `final.mp4` |
+| Sources, fact-check, treatments, script | `explainer-research` Stage 3; `research_flow/STORY_SHAPES.md` | `research/<video>/SOURCES.md`, `CLAIMS.md`, `FACTCHECK.md`, three treatments in `BRIEF.md`, `SCRIPT.md` with its Story card, `qa_script.py` exit 0, cold-read notes, G2 risk sheet |
+| Voice, ch1, chapters, picture review, master | `explainer-direct`; `kit/REVIEW_PASS.md`, `kit/VISUAL_SOURCES.md` | `film/<video>/`, `REVIEW.md`, `final.mp4` |
 | Thumbnails | `explainer-direct` "Thumbnails" | 3 variants |
 | Short | `explainer-shorts` | 1 hook Short in `shorts/` |
 | Style targets | `channels/<slug>/style.json` | pace, host, sound, hook, packaging, `publish_slot` |
@@ -26,8 +26,8 @@ Each video has a 2-day lane. Both channels start one new lane every day, so abou
 
 | Lane day | Work | Gate |
 |---|---|---|
-| **Day -2** | Pick from the remake shortlist; `REMAKE_MAP.md`; sources; `CLAIMS.md`; independent `FACTCHECK.md`; `SCRIPT.md`; `qa_hook.py --script`; `remake_diff.py`; G2 risk sheet; real-media fetch. **Voice for the whole film is generated and post-processed right after G1+G2, the same evening.** | **G1+G2** (evening) |
-| **Day -1** | Beat plan; ch1 (writer); `qa_hook.py` on ch1; chapters 2+ in parallel; thumbnails and 160 px test; assemble, master, `qa_film` exit 0; fresh-agent meaning review; upload pack; hook Short | **G3** only if the hook failed `qa_hook` or its voice changed; **G4+G5** (evening) |
+| **Day -2** | Pick from the remake shortlist; `REMAKE_MAP.md`; sources; `CLAIMS.md`; independent `FACTCHECK.md`; three treatments; `SCRIPT.md` with its Story card; `qa_script.py`; `qa_hook.py --script`; the cold read; `remake_diff.py`; G2 risk sheet; real-media fetch. **Voice for the whole film is generated and post-processed right after G1+G2, the same evening.** | **G1+G2** (evening) |
+| **Day -1** | Beat plan (every shot's why, one hero shot per chapter); ch1 (writer); `qa_hook.py` on ch1; chapters 2+ in parallel, each ending with its picture review; thumbnails and 160 px test; assemble, master, `qa_film` exit 0; picture review of the joined film with the fresh-eyes agent; upload pack; hook Short | **G3** only if the hook failed `qa_hook` or its voice changed; **G4+G5** (evening) |
 | **Day 0** | Nothing to build. Pinned comment at publish; the hook Short goes out the same day; the video of lane day -2 is already in progress | scheduled at `publish_slot` |
 | +48 h, +7 d | Data loop below | `LEARNINGS.md` row |
 
@@ -36,7 +36,7 @@ Publish slots come from each channel's `style.json` → `publish_slot`; two chan
 ### What runs in parallel, and the daily budget
 
 - **Per day, 2 videos reach day -1 and 2 reach day -2**, so up to ~12 agents are live at peak: per video in day -1, 1 writer (ch1) then 3 chapter workers, plus 1 thumbnail/Short worker; per video in day -2, 1 research and 1 fact-check worker, then 1 writer.
-- **Agents per video:** Opus (`explainer-writer`) 3 sessions: script + risk sheet, hook + ch1, G4 review. Sonnet (`explainer-worker`) about 8: research/map, fact-check, 3 chapter workers, thumbnails, assembly/QA/upload pack, Short. **Per day (2 videos): 6 Opus + about 16 Sonnet sessions and at most 20 USD of paid media** (10 per video, Shorts included).
+- **Agents per video:** Opus (`explainer-writer`) 3 sessions: script + risk sheet, hook + ch1, G4 review. Sonnet (`explainer-worker`) about 10: research/map, fact-check, the cold read, 3 chapter workers, thumbnails, assembly/QA/upload pack, the fresh-eyes review, Short (the cold read and the fresh-eyes review are short, read-only sessions). **Per day (2 videos): 6 Opus + about 20 Sonnet sessions and at most 20 USD of paid media** (10 per video, Shorts included).
 - **Render cap:** at most 4 HyperFrames renders at once across all videos; the coordinator gives each video 2 slots. Measured: one 90 s chapter captured in 1 min 26 s for a 90 s chapter (about real time) with one render alone. 2 films a day of 10-12 chapters is about 25 render-minutes per film per pass, 3 passes with reworks, so about 150 slot-minutes, about 40 minutes of wall clock on 4 slots (about 80 with contention; unmeasured at 4 at once). **It fits; rendering is not the bottleneck, direction and QA loops are.** If a day still slips: (1) films at the low end of `length_min`  rather than 15 min; (2) reusable set templates and footage instead of a new build for every beat; (3) a render queue scheduler that hands out the 4 slots (not built; ask for it if the cap starts to stall).
 - **Operator time: at most 20 min per video, 40 min a day.** G1+G2 about 7 min (title and concept pick plus the one-page risk sheet), G3 about 3 min when needed, G4+G5 about 10 min (final cut, contact sheet, 3 thumbnails at 160 px, listening sheet). Log it in `STATUS.md`.
 
@@ -50,10 +50,10 @@ Stop and wait at each. Present the decision as a short choice, with your recomme
 
 | # | Gate | What the operator sees | Answer |
 |---|---|---|---|
-| G1 | Topic + packaging | The remake pick with its angle line "They asked X. We ask Y.", 3 titles, 3 thumbnail concepts (the other 3 of the 6 already struck) | pick + title + concept |
-| G2 | Script | `SCRIPT.md`, the one-page **risk sheet** (hook text, the ten riskiest claims, named people, what differs from the source, `remake_diff` and `qa_hook` results) and the FACTCHECK verdict | OK / line edits |
+| G1 | Topic + packaging | The remake pick with its angle line "They asked X. We ask Y.", 3 titles, 3 thumbnail concepts (the other 3 of the 6 already struck), the three treatments in five lines each with the writer's pick first | pick + title + concept + treatment |
+| G2 | Script | `SCRIPT.md`, the one-page **risk sheet** (the Story card, hook text, the ten riskiest claims, named people, what differs from the source, `remake_diff`, `qa_hook` and `qa_script` results, the cold read's three stop points and what was done about each) and the FACTCHECK verdict | OK / line edits / switch treatment |
 | G3 (optional) | Chapter 1 | Skipped when ch1 passes `qa_hook.py` and the voice did not change; otherwise ch1 render, its QA numbers and the five-question listening sheet | OK / fixes |
-| G4 | Final cut | `final.mp4`, the `qa_film` table (exit 0), the contact sheet, the three thumbnails at 160 px beside competitors, the hook takes (the operator can swap a take for about 0.10 USD) | OK / fixes (at most 3 notes) |
+| G4 | Final cut | `final.mp4`, the `qa_film` table (exit 0), the first phone-width review sheet and the fresh-eyes answers (`REVIEW.md`), the three thumbnails at 160 px beside competitors, the hook takes (the operator can swap a take for about 0.10 USD) | OK / fixes (at most 3 notes) |
 | G5 | Publish | The filled upload template and the scheduled time | "publish" |
 
 **Batches:** G1+G2 together (one evening); G3 only on a hook failure; G4+G5 together. `explainer-direct`'s other approvals (new images within budget, host poses) need no extra stop; list them in the G4 report. Never upload, schedule or make public anything without G5 for that exact item (Shorts included).
@@ -100,7 +100,8 @@ Same gates and same 2-day lane, with a 72-hour ceiling from pick to publish. Pri
 |---|---|---|
 | Fact-check | `FACTCHECK.md` from an independent agent; `CLAIMS.md` rows | every spoken claim VERIFIED or PARTLY-with-the-corrected-wording; 0 UNVERIFIED in the script; each top claim has 2 independent sources, one primary |
 | Policy | read the script | no victim-blaming, no attribution beyond what officials state, no advice on money/law/health, no "how to" for an attack |
-| Script | `explainer-research` quality bar + playbook §16 greps | all boxes ticked; contrast ≥ style `script.contrast_per_min_min`; ≤ style `questions_per_chapter_max` |
+| Script | `kit/tools/qa_script.py <SCRIPT.md> --channel <slug>` + `explainer-research` quality bar | exit 0 before G2: Story card complete, contrast ≥ style `script.contrast_per_min_min`, ≤ style `questions_per_chapter_max`, no sentence over 30 words; every warning fixed or answered on the risk sheet |
+| Cold read | fresh agent, narration only, fixed brief (`research_flow/STORY_SHAPES.md` §8) | it names the person, the goal and the obstacle from the text alone; its three stop points are fixed or answered |
 | Pace | `kit/tools/qa_pace.py <mp4> --channel <slug>` | inside style `pace.shot_changes_per_min` min–max; ch1 first 60 s ≥ `first_60s_per_min_min`; median gap ≤ `median_gap_max_s`; every gap > `long_gap_s` has a reason; none > `max_gap_s` |
 | Audio | `kit/tools/qa_audio.py <mp4> <vo>` | SFX bus 12–18 dB under voice; loudest SFX below loudest voice; sync −33 to 0 ms; hits/min inside style `sound.sfx_hits_per_min` |
 | Freeze | `sh kit/tools/qa_freeze.sh <mp4> 1.0` | no freeze listed |
@@ -108,6 +109,7 @@ Same gates and same 2-day lane, with a 72-hour ceiling from pick to publish. Pri
 | Loudness | `TP=-2.0 sh kit/tools/master.sh` then measure | −14 LUFS ±0.5 integrated, true peak ≤ −1.5 dBTP after AAC encode |
 | Format | `ffprobe` | 1920×1080, 30 fps, AAC; duration = sum of trimmed chapters |
 | Contact sheet | ffmpeg 2 fps sheet vs beat plan | every sentence has its picture on its word; host-visible and presenter shares inside style `host`; media mix inside style `media_mix`; joins clean |
+| Picture review | `kit/tools/qa_review.py` + `kit/REVIEW_PASS.md`, per chapter and on the joined film | no P0 open; `unanswered` empty or explained; at most 1 frame in 4 a card with words; the fresh-eyes agent says the first three tiles show the title's promise |
 | Packaging | `thumb_sheet.py` 160 px test (3 ours among 6 competitors, OCR at 320 px); titles vs style `packaging` | each reads in < 1 s; title ≤ `title_max_chars`; frame 0 shows the thumbnail's object; promise spoken by `hook.promise_by_s` |
 | Hook | `kit/tools/qa_hook.py <ch01_raw.mp4> <ch01_w.words.json> --title "..." --channel <slug>` (also inside `qa_film.py`; `--script` before voice) | exit 0: sentence 1 by `first_sentence_by_s`, promise by `promise_by_s`, stakes by 30 s, story by `story_by_s`, 8 changes in 30 s, no banned words, frame 0 = thumbnail object |
 | Remake | `kit/tools/remake_diff.py` | exit 0 before G2 (limits in `explainer-research` Stage 2R) |
@@ -148,7 +150,7 @@ The operator pastes the numbers into `STATUS.md` with the retention curve (an ex
 | 7 d | Comments | 5 % about the voice; any factual dispute | Voice trigger (designed voice stays postponed until then). Check a dispute within 24 h and correct it in the description. |
 | 7 d | Shorts "stayed to watch" | under 60 %; 70 % | Rewrite the hook Short's first clause. |
 
-Write one `LEARNINGS.md` row per video (date, title, lane, views 48 h and 7 d, CTR, 0:30 %, average % viewed, top dip and its beat, Short verdict, decision). **Change a rule only when three videos point the same way** and log it; errors are fixed at once. Use engaged views, not public views. Stage 2R and `explainer-channel-style` read the file (our own data wins at 5 uploads).
+Write one `LEARNINGS.md` row per video (date, title, lane, story shape and hook mechanism, views 48 h and 7 d, CTR, 0:30 %, average % viewed, top dip and its beat, Short verdict, decision). The rules taken from other people's repos on 18/11/2026 (E1–E10 in `STORY_SHAPES.md`, the `[hf]` rules in `CRAFT_RULES.md` §15–16) are **experiments**: none came with retention data. At each 7-day review mark in the file's "Experiments" table whether the video's curve agrees with each rule it used; a rule stays after three videos agree and goes after three disagree. **Change a rule only when three videos point the same way** and log it; errors are fixed at once. Use engaged views, not public views. Stage 2R and `explainer-channel-style` read the file (our own data wins at 5 uploads).
 
 ## Stop doing
 
@@ -172,6 +174,7 @@ Create it at G1. One page; tick as you go; links instead of copies.
 # <video slug> — <channel>   lane: hot | remake | evergreen   publish: <YYYY-MM-DD HH:MM UTC>
 
 Title: <chosen>    Thumbnail: <concept>    Click promise: <one sentence>    Angle: They asked X. We ask Y.
+Shape: <T1–T5>    Hook mechanism: <# and name>    Peak: <m:ss, the picture>    Person: <who wants what, blocked by what>
 Brief: research/<video>/BRIEF.md    Film: film/<video>/
 
 ## Gates (each ticked gate links to its evidence file)
@@ -189,7 +192,9 @@ Brief: research/<video>/BRIEF.md    Film: film/<video>/
 | Check | Target (style.json) | Result | Pass |
 |---|---|---|---|
 | qa_film exit code | 0 | | |
-| qa_hook / remake_diff | exit 0 | | |
+| qa_hook / remake_diff / qa_script | exit 0 | | |
+| Cold read: person named / stop points fixed | yes / 3 of 3 | | |
+| Picture review: P0 open / unanswered / card frames | 0 / 0 / ≤ 1 in 4 | | |
 | Fact-check: claims / verified / partly / cut | 0 unverified | | |
 | Pace film / ch1 first 60 s / median gap | | | |
 | SFX under voice / hits per min | 12-18 dB / | | |

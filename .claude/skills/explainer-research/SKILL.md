@@ -77,9 +77,9 @@ Worked examples (old rules): `research/remake/<slug>/` (made on your first remak
 ## Stage 3 — Topic brief (per video, feeds production)
 1. Deep research with web search (Sonnet subagent): timeline, numbers, quotes, each with source URL; 3–5 "shock facts" for the hook; known counter-arguments.
 2. Independent fact-check: a separate subagent that receives only the claims, not the research notes, writes `FACTCHECK.md` (hard gate, Stage 2R item 6).
-3. Read the channel's `STYLE.md`. Write the packaging first (section "Packaging" below), then the outline with the 5-stage arc (hook paradox → assumption → hidden mechanism → core truth → open question), one recurring physical metaphor + matching SFX (plus the channel's recurring device from its style), open loops and callbacks placed by minute, target length from the style's `length_min` (**default** 9–12 min). The outline and the script that follows obey the "Script rules" below.
+3. Read the channel's `STYLE.md`. Write the packaging first (section "Packaging" below). Then write **three treatments** of the same facts (`explainer/research_flow/STORY_SHAPES.md` §1: each its own shape, device and form, one of them the bold one), put your recommendation first and write the outline for it; the other two stay in the BRIEF so the operator can switch at G1+G2. Then the outline in the picked shape (STORY_SHAPES §3; the 5-stage arc hook paradox → assumption → hidden mechanism → core truth → open question is one shape among them, not the default), one recurring physical metaphor + matching SFX (plus the channel's recurring device from its style), open loops and callbacks placed by minute, target length from the style's `length_min` (**default** 9–12 min). The outline and the script that follows obey the "Script rules" below.
 4. Real media list: every named company, product, place or historic moment in the outline gets a row (entity, where it appears, media type logo/photo/footage). Fetch candidates with `explainer/kit/tools/fetch_media.py` (logo / image / commons / archive) into `research/<slug>/media/`, look at `contact_sheet.png`, and record the chosen file + license. Mark any `non-free (fair use)` file for the human; prefer a free alternative. Also list the footage per chapter (target `real_media.footage_share`, default 5–15 %): 1+ clip per chapter as era/atmosphere B-roll, found with `commons-video`, `nasa-video`, `archive --vetted`, `pexels --video`; note licence, risk and Content ID note, and never plan footage of an event that has none (see `research/upgrade/footage/FOOTAGE_REPORT.md`).
-5. Write `research/<slug>/BRIEF.md` (click promise, thesis, outline with BUT/THEREFORE between beats, claims table with URLs, competitor notes, **5 titles from 3 families + 3 thumbnail concepts in 3 layouts**, the next video to pitch at the end, required new assets, **real media table with chosen files and licenses**). Run the "Quality bar" at the end of this file before showing it. **Human gate 1 of the production pipeline.**
+5. Write `research/<slug>/BRIEF.md` (click promise, thesis, `## Treatments` with the three and the pick, outline with BUT/THEREFORE between beats, claims table with URLs, competitor notes, **5 titles from 3 families + 3 thumbnail concepts in 3 layouts**, the next video to pitch at the end, required new assets, **real media table with chosen files and licenses**). Run the "Quality bar" at the end of this file before showing it. **Human gate 1 of the production pipeline.**
 
 ## Topic gates (stage 2, before scoring)
 
@@ -107,7 +107,7 @@ Expect most videos to miss: the median new channel's best of its first ten long 
    - Story promise or hidden thing: "Apple Had No Idea This Was Inside 174 Million iPhones", "We Should Be Flying Like This".
    - Versus or impossibility: "Can Google Beat Nvidia?", "Why No One Can Copy ASML?".
    - A number and a thing the viewer owns or knows: "$600 Million Warship VS $5 Tracker", "200 Million User Records... Breached".
-   - At most two of the five end in a question mark. Large samples disagree on whether question titles lose views, and a channel of only "Why would...?" titles reads as a template.
+   - At most one of the five ends in a question mark: in the one large sample (vidIQ, 4 million videos of 2026, observational) question-ending titles ran at 0.82x the average video. At least one of the five uses a frame from that study's upper half: "Inside X", "Nobody knew…", "How X turned into Y", a time span (`STORY_SHAPES.md` §6).
    - No more than 2 of a channel's last 5 published titles from one family.
 3. **Thumbnails: three concepts, then three variants.** The method, the layout rules and the 160 px test live in one place, `explainer-direct` section "Thumbnails". The BRIEF carries only the reference table and six concepts from three families (object damaged or in conflict; a number that looks wrong on the object; a versus split), of which the operator strikes three at G1. Real logos follow the channel style (`packaging.real_logo_ok`).
 4. **Test.** In Studio's A/B test (desktop, needs advanced features, up to 3 variants of title, thumbnail or both, up to 2 weeks) upload variants that are clearly different. On a small channel the result is often "Inconclusive"; then keep the variant with the best Home and Suggested click-through rate together with average view duration. Never judge on click-through rate alone: high CTR with low view duration is YouTube's own definition of clickbait.
@@ -119,6 +119,7 @@ Expect most videos to miss: the median new channel's best of its first ten long 
 **Hook (default: 0:00–0:35, never past 0:45, at most 95 words; the style's `hook` sets its own)**
 - Sentence 1 ends by 0:05 (15 words or fewer). It is a concrete scene, number or claim about the thumbnail's object. Not a question, not context. (M: ten of ten competitor videos.)
 - The title's promise is spoken by the style's `hook.promise_by_s` (default 20 s), in words close to the title; `qa_hook.py --script SCRIPT.md` checks it from word counts before any voice is paid for. (P; O: "the first seven seconds of a video is about confirming the click".)
+- **The hook opens the loop the peak closes.** The first 10 s show the object the title and thumbnail promise; the peak shows it again, paid; the hook never answers it (Story card slots "First 10 s" and "Peak"). Name the hook's mechanism (`STORY_SHAPES.md` §4) and use a different one from the channel's last video.
 - One tease line of 20 words or fewer that raises the stakes above the title ("Here's the strange part: what makes it impossible to copy is the thing that almost killed it"). Not a list of what the video covers.
 - Then cut into the story with a date or a place ("It's 2013.").
 - Not in the first 60 s: the host's name, the channel's name, "in this video", "welcome", subscribe, sponsor. (M: none of 13 competitor videos in one check; 2 of 10 in another, both a one-line brand tag on a long-established channel.) If the host names herself at all, it is one clause in the sign-off.
@@ -127,9 +128,13 @@ Expect most videos to miss: the median new channel's best of its first ten long 
 **Body**
 - Write BUT or THEREFORE between every two beats of the outline. "And then" means cut one beat or reorder. (O: Parker and Stone.)
 - Every chapter (60–90 s) opens with a turn in its first sentence: a new problem, a reversal, a raised stake. Never with its own conclusion. (O)
-- One planned re-engagement at 40–50 % of the runtime: the most surprising fact, or a reversal the hook did not promise. (O)
-- **One person with a decision.** The film follows one real named person (or one named body) who must choose; say who by the end of the hook's story start.
+- **Re-hooks at about 3:00, 6:00 and 9:00** (one per 3.5 minutes, never more than 4 minutes apart): a new fact, an escalation or a reversal the hook did not promise. Their times are in the Story card. (O: experiment E3; this replaces the single re-engagement at 40–50 %.)
+- **The first three minutes pass through at least three different times or places.** (O: E4)
+- **One person with a decision.** The film follows one real named person (or one named body, or a real role when no name is public: the on-call engineer, the night operator) who wants something and is blocked; say who by the end of the hook's story start. The Story card's "Person" slot states the goal and the obstacle. Never an invented person. (O: E2)
 - No list over three items without a turn (a number that breaks the pattern, a reversal), and no stretch over 75 s without a turn.
+- No stretch over 60 s of pure explanation: a person acts, two things collide or something surprises at least once a minute. (O: E7)
+- **Every chapter ends on a question, a reversal or a new threat**, never on its own summary; and each chapter's stake is larger or closer than the last (the Story card's stakes ladder). (O: E5, E6)
+- Every number gets a human-scale comparison in the same sentence or the next, from the claims table. (O: E8)
 - Contrast turns (but, except, until, instead, however, yet): at least 1.0 per minute of script. (M: competitors 1.0–2.6; our first two scripts 0.5–0.6.)
 - Spoken questions: at most one per chapter, never two in a row. Prefer a statement that opens a gap. (M: competitors 0–0.6 per minute; our first two scripts 1.1–1.6.)
 - No backstory before the hook's question. A history block runs 75 s at most, then back to the mechanism or the conflict. (O)
@@ -142,7 +147,13 @@ Expect most videos to miss: the median new channel's best of its first ten long 
 - No summary, no "in conclusion", no "thanks for watching", no bare "hit subscribe" as the last line. (O; P: end screens run in the last 5–20 s and should "feature elements that are relevant to the video".)
 - A channel's first video has nothing to point at: pitch the next approved backlog topic by its question, and set the end screen to subscribe + "best for viewer".
 
-Check the counts with the two `grep` lines in playbook §16.
+**The Story card, the lint and the cold read (before G2, before any voice).** `SCRIPT.md` starts with the `## Story card` block (`STORY_SHAPES.md` §2: promise, first 10 s, person, peak, shape, stakes ladder, re-hooks). Then:
+
+```
+python3 kit/tools/qa_script.py research/<video>/SCRIPT.md --channel <slug>     # exit 1 blocks G2
+```
+
+It runs every count in this section and fails on a missing Story card slot. Then one **cold read**: a fresh `explainer-worker` that sees only the narration, the title and the thumbnail concept, with the fixed brief in `STORY_SHAPES.md` §8. Fix every stop point it marks, or answer it in one line on the G2 risk sheet. The lint and the cold read cost no paid call; a script that skips them is paid for twice.
 
 ## Quality bar: a script is not done until every line is true
 
@@ -151,8 +162,12 @@ Check the counts with the two `grep` lines in playbook §16.
 - [ ] Sentence 1 is about the thumbnail's object and ends, the promise is spoken, and the story starts by the style's `hook` times (defaults 0:05 / 0:20 / 0:35).
 - [ ] No host name, channel name, "in this video", welcome, subscribe or sponsor line in the first 60 s.
 - [ ] BUT or THEREFORE stands between all outline beats. Contrast turns ≥ 1.0 per minute. At most one question per chapter.
-- [ ] Every chapter's first sentence is a turn, not a summary. A re-engagement sits at 40–50 %.
+- [ ] Every chapter's first sentence is a turn, not a summary, and its last is a question, a reversal or a new threat. Re-hooks sit about every 3 minutes, never more than 4 apart.
 - [ ] Every open loop has a closing time; the last one closes as the film's last payoff.
+- [ ] Three treatments are in the BRIEF; the script's shape and hook mechanism differ from the channel's last two videos.
+- [ ] The Story card is complete; the first 10 s show the promise's object and the peak pays it in the last 45 % of the film.
+- [ ] `qa_script.py` exits 0 and every warning is fixed or answered on the risk sheet.
+- [ ] The cold read ran; it could say who the story is about, what they want and what blocks them; its three stop points are fixed or answered.
 - [ ] The ending is 30 s or less, names one next video, and contains no summary or thanks.
 - [ ] Every spoken claim has a row in the claims table with a verdict from the independent fact-check.
 - [ ] Metaphor, chapter structure and title family differ from the channel's last two videos.
