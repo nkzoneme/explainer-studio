@@ -1,5 +1,5 @@
 #!/bin/sh
-# Light voice post for NEW films (IMPROVE_PLAN section 4). Timings do not change (duration is forced equal to the input).
+# Light voice post for NEW films. Timings do not change (duration is forced equal to the input).
 # Usage: vo_post.sh in.mp3 out.mp3
 # Chain: high-pass 70 Hz -> de-ess -> gentle EQ (-1.5 dB mud at 250 Hz, +2 dB presence at 4 kHz) -> 2.5:1 compression
 #        -> small room (ROOM % wet, default 6; ROOM=0 disables) -> limiter at -1.5 dBFS.

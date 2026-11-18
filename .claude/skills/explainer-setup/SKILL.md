@@ -25,7 +25,7 @@ Scripts find keys in this order: process environment → `<repo>/.env` → `expl
    - **The keys are already exported in the user's shell**: `./setup.sh --skip-install --from-env`.
    - **The user prefers to type them**: tell them to run `! ./setup.sh --skip-install` (interactive, hidden input).
    - Never `cat .env`, never `grep` it with output, never print `get_key(...)`.
-4. `python3 explainer/check_setup.py` (tests OpenRouter, kie, Pexels, Pixabay against free endpoints; FAL is only checked for presence: the first voice call, about 0.05 USD, proves it). Report the table without values.
+4. `python3 explainer/check_setup.py` (tests OpenRouter, kie, Pexels, Pixabay against free endpoints; FAL is only checked for presence: the first voice call, about 0.05 USD, proves it; a missing FAL key is a FAIL and the script exits 1, because nothing can be voiced without it). Report the table without values.
 5. Activate for later commands: prefix Python with `.venv/bin/python` or `source .venv/bin/activate` in the same command.
 
 ## 2. New channel

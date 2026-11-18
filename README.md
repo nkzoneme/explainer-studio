@@ -141,7 +141,7 @@ explainer/
   kit/              kit.js / kit.css (HyperFrames craft kit), CRAFT_RULES.md, REVIEW_PASS.md, VISUAL_SOURCES.md, sfx/ (CC0), tools/ (QA, script lint, review sheets, master, media fetch, thumbnails)
   shorts/           native/ (vertical Short scaffold, shorts.js/css, finish_short.sh), pick_segments.py, make_short.py, styles/_example.json
   research_flow/    trend_radar.py, channel_style_scan.py, gemini_video.py, topic_gap.py, prompts, STORY_SHAPES.md (treatments, Story card, cold read), REFERENCE_REPOS.md
-  research/         background reading the skills cite (viral playbook, footage sources)
+  research/         made per video on your machine (SOURCES, CLAIMS, FACTCHECK, SCRIPT); gitignored, not shipped
   channels/         README.md (style.json schema) and _template/
 ```
 

@@ -37,7 +37,7 @@ Never read `.env`, never print keys, send nothing but public video URLs to outsi
 
 1. `python3 research_flow/channel_style_scan.py channels/<slug>/research/competitors.json channels/<slug>/research/scan` (background; YouTube rate-limits captions after a dozen in a row, the tool sleeps between videos). A failed video is retried on the next run.
 2. Gemini on one video per competitor (the most typical of the picks, under 30 min). Write to `channels/<slug>/research/gemini/<competitor>__<id>.md`. Tally the cost line each run prints; stop at the cap.
-3. Look at every contact sheet (`<id>_sheet.jpg`, 30 evenly spaced frames) and every `thumbs.jpg`. Count frames with a presenter (talking to camera), with a host inside a scene, with real media (footage, photo, document, screenshot), with maps, with drawn scenes. Contact-sheet counts are your measurement; Gemini's percentages are estimates and were up to 3× off on shot counts in the playbook check. Where the two disagree, say so.
+3. Look at every contact sheet (`<id>_sheet.jpg`, 30 evenly spaced frames) and every `thumbs.jpg`. Count frames with a presenter (talking to camera), with a host inside a scene, with real media (footage, photo, document, screenshot), with maps, with drawn scenes. Contact-sheet counts are your measurement; Gemini's percentages are estimates and were up to 3× off on shot counts in our own check. Where the two disagree, say so.
 4. Measure our own last film(s) the same way: `python3 kit/tools/qa_pace.py film/<slug>/final/<final>.mp4` and a contact sheet.
 
 ## Step 3. Tabulate (`channels/<slug>/research/EVIDENCE.md`)

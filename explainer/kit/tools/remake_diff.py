@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""G2 remake gate (IMPROVE_PLAN section 2). Usage:
+"""G2 remake gate. Usage:
   python3 remake_diff.py REMAKE_MAP.md OUR_chapters.json [--script SCRIPT.md] [--transcript src_transcript.txt]
         [--title "our title"] [--src-title "source title"] [--entity "Acme"]
         [--thumb-text "OUR WORDS"] [--src-thumb-text "THEIR WORDS"] [--thumb-img ours.png --src-thumb-img theirs.png]

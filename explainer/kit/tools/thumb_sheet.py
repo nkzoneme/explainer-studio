@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Thumbnail tools (IMPROVE_PLAN section 3). Two subcommands.
+"""Thumbnail tools. Two subcommands.
 
 1) sheet: place 3 candidate thumbnails among 6 competitor thumbnails in a mock YouTube grid (light + dark mode, 160 px and
    320 px tiles) and run the layout checks. Competitors come from yt-dlp ("ytsearch8:<query>", thumbnails only, nothing is

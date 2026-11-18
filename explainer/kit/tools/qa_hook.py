@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hook QA for chapter 1 (IMPROVE_PLAN section 5). Usage:
+"""Hook QA for chapter 1. Usage:
   python3 qa_hook.py <chapter-1 dir | ch01_raw.mp4 | final.mp4> --channel <slug> [--title "..."] [--script SCRIPT.md]
                      [--words ch01_w.words.json] [--thumb thumb.png] [--out report.json] [--no-video]
 Thresholds come from channels/<slug>/style.json "hook" (first_sentence_by_s, promise_by_s, story_by_s).

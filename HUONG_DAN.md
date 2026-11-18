@@ -75,7 +75,7 @@ Ready.
 
 | Key | Lấy ở | Dùng cho | Bắt buộc? | Chi phí |
 |---|---|---|---|---|
-| `FAL_API_KEY` | https://fal.ai/dashboard/keys | giọng đọc ElevenLabs có mốc thời gian từng chữ | **Có** | ~0,02 USD / Short, ~1–2 USD / video dài |
+| `FAL_API_KEY` | https://fal.ai/dashboard/keys | giọng đọc ElevenLabs có mốc thời gian từng chữ | **Có** | ~0,05 USD / Short, ~1–2 USD / video dài |
 | `KIE_API_KEY` | https://kie.ai/api-key | vẽ hình, đạo cụ hoạt hình | Không | ~0,03 USD / hình |
 | `OPENROUTER_API_KEY` | https://openrouter.ai/keys | Gemini xem video đối thủ để rút ra style kênh | Không | vài cent / video |
 | `PEXELS_API_KEY` | https://www.pexels.com/api/ | ảnh và video stock | Không | miễn phí |

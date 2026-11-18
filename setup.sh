@@ -90,7 +90,7 @@ done
 
 echo "== 6. check"
 PY=python3; [ -x .venv/bin/python ] && PY=.venv/bin/python
-"$PY" explainer/check_setup.py || { echo "fix the FAIL lines above, then re-run ./setup.sh --skip-install"; exit 1; }
+"$PY" explainer/check_setup.py || { echo; echo "Installed, but NOT ready: fix the FAIL lines above (FAL_API_KEY is the one required key), then re-run ./setup.sh --skip-install"; exit 1; }
 echo
 echo "Ready. Activate with: source .venv/bin/activate   then open Claude Code in $ROOT"
 echo "New channel: ./setup.sh --new-channel my_slug \"My Channel\""

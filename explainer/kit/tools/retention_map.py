@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Map retention drops to the sentence and the picture they land on (IMPROVE_PLAN section 6). Usage:
+"""Map retention drops to the sentence and the picture they land on. Usage:
   python3 retention_map.py --project <slug> --chapters film/<slug>/final/chapters.json (--csv studio.csv | --drops 83,2:10,412)
         [--duration S] [--script research/remake/<slug>/SCRIPT.md] [--video film/<slug>/final/<slug>_final.mp4] [--out DIR]
         [--window 15] [--min-drop 5] [--top 3]

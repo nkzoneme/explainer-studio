@@ -1,4 +1,4 @@
-# kit/tools: new in the 17/11/2026 upgrade (IMPROVE_PLAN)
+# kit/tools: new in the 17/11/2026 upgrade
 
 Run from `explainer/`. Needs ffmpeg, tesseract, numpy, Pillow, OpenCV (all present). `yt-dlp` and `rembg` live in `~/.cache/explainer-venv/bin` (thumb_sheet finds them itself). No paid calls anywhere.
 

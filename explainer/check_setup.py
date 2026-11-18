@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Check tools and API keys. Prints OK/MISSING/FAIL per item, never a key value.
+"""Check tools and API keys. Prints OK/MISSING/FAIL per item, never a key value. Exit 1 on any FAIL;
+a missing FAL_API_KEY is a FAIL (it is the one required key), other missing keys only switch a feature off.
 Usage: python3 explainer/check_setup.py [--offline]   (--offline: presence only, no network)"""
 import importlib, shutil, subprocess, sys
 from pathlib import Path
@@ -41,7 +42,10 @@ TESTS = {
 }
 for name, test in TESTS.items():
     k = get_key(name, required=False)
-    if not k: line("MISSING", name, "REQUIRED to produce videos (voice)" if name == "FAL_API_KEY" else "feature off (see .env.example)"); continue
+    if not k:
+        if name == "FAL_API_KEY": line("FAIL", name, "missing and REQUIRED: no voice, no video. Add it to .env (https://fal.ai/dashboard/keys) or re-run ./setup.sh and paste it")
+        else: line("MISSING", name, "feature off (see .env.example)")
+        continue
     if offline or test is None: line("SET", name, "not tested" if test is None else "offline"); continue
     try: line("OK" if test(k) else "FAIL", name, "" )
     except Exception as e: line("FAIL", name, type(e).__name__)

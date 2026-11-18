@@ -474,7 +474,7 @@ def check_host(chs, style, total):
 
 
 def check_factcheck(proj):
-    """Independent fact-check gate (IMPROVE_PLAN 5): research/**/<film>/FACTCHECK.md must exist and hold no UNVERIFIED row."""
+    """Independent fact-check gate: research/**/<film>/FACTCHECK.md must exist and hold no UNVERIFIED row."""
     name = proj.name
     cands = [ROOT / "research" / name / "FACTCHECK.md", ROOT / "research" / "remake" / name / "FACTCHECK.md"]
     cands += sorted((ROOT / "research").glob(f"*/{name}/FACTCHECK.md"))
