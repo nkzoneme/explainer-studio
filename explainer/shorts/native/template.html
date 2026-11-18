@@ -1,0 +1,59 @@
+<!doctype html>
+<!--
+  SHORT: <title>   Channel: __CHANNEL__   VO __VOLEN__ s, comp __END__ s (VO end + 2.3 s: end card holds ~2.15 s)
+  LAYOUT (1080x1920; see shorts.css for the safe zones)
+    168-182   progress bar           196-432  hook title (on screen from frame 0)
+    440-900   MAIN zone: the one big object of the beat; keep it right of x~280 below y 600 (the host's head is there)
+    600-1235  host bottom-left (x 0-430, feet on the floor at 1235); labels/stamps/counters in x 440-890, y 900-1230
+    1240-1390 word captions          1400+    nothing (Shorts UI, related-video pill)
+  BEAT PLAN (write before markup; per sentence: trigger word @ time -> what appears -> sound)
+    B1 0.00-..  ...
+-->
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <link rel="stylesheet" href="kit/kit.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="shorts.css" />
+    <style></style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__END__" data-width="1080" data-height="1920">
+      <audio id="vo" class="clip" data-start="0" data-duration="__VOLEN__" data-volume="1" data-track-index="0" src="__VO__"></audio>
+      <div class="sh-floor"></div>
+      <div id="s1" class="sh-scene clip" data-start="0" data-duration="__END__" data-track-index="1" style="z-index:1">
+        <div class="cam" id="shk1"><div class="cam" id="cam1">
+          <div data-layout-allow-overflow class="spot" style="left:90px;top:330px;width:900px;height:900px"></div>
+          <!-- props here -->
+        </div></div>
+      </div>
+      <!--HOST--><div class="abs" id="hm" style="left:-20px;top:600px;width:460px;height:640px;z-index:30;transform:scaleX(-1)"><div class="sh-host" id="host"></div></div><!--/HOST-->
+    </div>
+    <script src="kit/sfx/index.js"></script>
+    <script src="levels.js"></script>
+    <script src="kit/kit.js"></script>
+    <script src="shorts.js"></script>
+    <script>
+      const WORDS = __WORDS__;
+      const END = __END__;
+      const tl = gsap.timeline({ paused: true });
+      const K = Kit.create(tl, { root: "#root", words: WORDS, levels: window.KIT_LEVELS, sfxBase: "kit/", fx: "#cam1" });
+      const S = Shorts.create(K, { end: END, hook: "HOOK <em>TITLE</em>", merge: [], card: { line: "__CARDLINE__", sub: "__CHANNEL__" } });
+      const IMG = "assets/img/";
+      //HOST
+      const host = Shorts.snapPose(K, K.host("#host", { poses: { neutral: IMG + "host_neutral.webp" }, faces: { neutral: "host_neutral" }, start: "neutral" }));
+      host.breathe(0, END).talk(0, END).blinks(0, END, { seed: 3 });
+      //HOST_END
+      K.push("#cam1", 0, END, 1.0, 1.04, 0, 0, 0, -10);
+
+      S.finish();
+      // REQUIRED MARKER: K.finish() inserts the SFX with document.createElement("audio").
+      K.finish();
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

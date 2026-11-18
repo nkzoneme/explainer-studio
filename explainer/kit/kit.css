@@ -1,0 +1,104 @@
+/* kit.css — stage + effect styles for kit.js. Each channel overrides the palette variables in its own style.css. */
+:root {
+  --ground: #f4f1ea;
+  --ground2: #e6e0d4;
+  --ink: #23262b;
+  --navy: #1d3557;
+  --brick: #c0463a;
+  --mustard: #e4572e;
+  --bp: #2c5aa0;
+  --font-display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--ground); }
+#root { position: relative; width: 1920px; height: 1080px; font-family: var(--font-display); font-weight: 900; overflow: hidden; }
+
+/* stage */
+.scene { position: absolute; inset: 0; overflow: hidden; background: var(--ground); }
+.cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.abs { position: absolute; }
+.spot { position: absolute; border-radius: 50%; background: var(--ground2); }
+.floor { position: absolute; left: 0; right: 0; height: 10px; background: var(--ink); opacity: 0.12; border-radius: 6px; }
+.label {
+  position: absolute; padding: 18px 34px; background: var(--navy); color: #fff; font-size: 46px; letter-spacing: 1px;
+  border: 6px solid var(--ink); border-radius: 12px; box-shadow: 8px 8px 0 rgba(59, 42, 32, 0.25); white-space: nowrap;
+}
+.label.red { background: var(--brick); }
+.label.gold { background: var(--mustard); color: var(--ink); }
+.card {
+  position: absolute; padding: 14px 30px; background: #fff; color: var(--navy); font-size: 60px; letter-spacing: 2px;
+  border: 6px solid var(--ink); border-radius: 10px; box-shadow: 8px 8px 0 rgba(59, 42, 32, 0.25); white-space: nowrap;
+}
+svg.ink path, svg.ink line, svg.ink polyline, svg.ink rect, svg.ink circle, svg.ink ellipse {
+  fill: none; stroke: var(--ink); stroke-width: 8; stroke-linecap: round; stroke-linejoin: round;
+}
+svg.redx path, svg.redx line { fill: none; stroke: var(--brick); stroke-width: 22; stroke-linecap: round; }
+
+/* host built by K.host(): wrapper needs position + size (like .charwrap) */
+.charwrap, .kit-host { position: absolute; bottom: -40px; height: 940px; width: 700px; }
+.kit-host-sway, .kit-host-bob, .kit-host-breathe { position: absolute; inset: 0; transform-origin: 50% 100%; }
+.kit-pose { position: absolute; left: 0; bottom: 0; height: 100%; }
+.kit-pose img { display: block; height: 100%; width: auto; }
+.kit-face { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.charwrap > img { position: absolute; bottom: 0; left: 0; height: 100%; }
+
+/* effects created by kit.js */
+.kit-puff { position: absolute; border-radius: 50%; background: #cfc2ab; border: 4px solid rgba(59, 42, 32, 0.55); opacity: 0; pointer-events: none; z-index: 20; }
+.kit-rays { position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none; z-index: 20; }
+.kit-ray { position: absolute; left: 0; top: 0; height: 9px; margin-top: -4.5px; border-radius: 5px; background: var(--brick); transform-origin: 0 50%; }
+.kit-spark {
+  position: absolute; background: var(--mustard); opacity: 0; pointer-events: none; z-index: 21;
+  clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+}
+audio.kit-sfx { display: none; }
+
+/* real media (K.sticker / K.photo / K.tv) — make logos and photos objects of the cartoon world */
+.kit-sticker { position: absolute; }
+.kit-sticker img {
+  display: block; width: 100%; height: auto;
+  /* white die-cut border around the logo's alpha shape, then the stage's hard shadow */
+  filter: drop-shadow(0 0 0 #fff) drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff)
+          drop-shadow(0 -5px 0 #fff) drop-shadow(3px 3px 0 #fff) drop-shadow(-3px -3px 0 #fff)
+          drop-shadow(3px -3px 0 #fff) drop-shadow(-3px 3px 0 #fff) drop-shadow(8px 9px 0 rgba(59, 42, 32, 0.25));
+}
+.kit-sticker.card { padding: 0; }
+.kit-sticker.plate { background: #fff; border: 6px solid var(--ink); border-radius: 18px; padding: 26px 34px; box-shadow: 8px 8px 0 rgba(59, 42, 32, 0.25); }
+.kit-sticker.plate img { filter: none; }
+.kit-photo {
+  position: absolute; margin: 0; background: #fffdf7; padding: 16px 16px 0; border: 5px solid var(--ink); border-radius: 6px;
+  box-shadow: 10px 12px 0 rgba(59, 42, 32, 0.22);
+}
+.kit-photo img { display: block; width: 100%; height: auto; border: 3px solid var(--ink); border-radius: 2px;
+  filter: saturate(0.82) contrast(1.04) sepia(0.12); }
+.kit-photo figcaption { font-size: 34px; color: var(--ink); text-align: center; padding: 12px 6px 34px; letter-spacing: 0.5px; }
+/* on-screen credit = texture (add data-layout-ignore); the full credit lives in the description (CREDITS.md) */
+.kit-credit { position: absolute; font: 600 17px/1 Arial, sans-serif; white-space: nowrap; letter-spacing: 0.2px; }
+.kit-photo .kit-credit { right: 14px; bottom: 9px; color: rgba(59, 42, 32, 0.78); }
+.kit-tv .kit-credit, .kit-crt .kit-credit { left: 40px; bottom: 18px; color: rgba(255, 255, 255, 0.72); }
+.kit-tape { position: absolute; width: 130px; height: 38px; background: rgba(240, 222, 160, 0.86); border: 2px solid rgba(59, 42, 32, 0.25); opacity: 0; }
+.kit-tape.l { left: -36px; top: -14px; transform: rotate(-32deg); }
+.kit-tape.r { right: -36px; top: -14px; transform: rotate(30deg); }
+.kit-tv {
+  position: absolute; background: #3b3f46; border: 8px solid var(--ink); border-radius: 34px; padding: 30px 34px 54px;
+  box-shadow: 12px 14px 0 rgba(59, 42, 32, 0.25);
+}
+.kit-tv video, .kit-tv img, .kit-phone video, .kit-crt video { display: block; width: 100%; height: auto; border-radius: 22px; border: 5px solid #1d1f23;
+  filter: sepia(0.25) contrast(1.08) saturate(0.8); }
+.kit-tv::after { content: ""; position: absolute; right: 44px; bottom: 16px; width: 80px; height: 14px; border-radius: 7px; background: #23262b; }
+/* footage props besides the TV: .kit-phone (portrait/social clips; give it a portrait width, e.g. 420 px) and
+   .kit-crt (monitor with stand). Play them with K.screen. */
+.kit-phone { position: absolute; background: #23262b; border: 8px solid var(--ink); border-radius: 46px; padding: 30px 14px 44px;
+  box-shadow: 12px 14px 0 rgba(59, 42, 32, 0.25); }
+.kit-phone::before { content: ""; position: absolute; left: 50%; top: 11px; width: 90px; height: 10px; margin-left: -45px; border-radius: 5px; background: #0f1114; }
+.kit-phone::after { content: ""; position: absolute; left: 50%; bottom: 13px; width: 54px; height: 54px; margin-left: -27px; border-radius: 50%; border: 4px solid #0f1114; opacity: 0.35; }
+.kit-phone .kit-credit { left: 28px; bottom: 6px; font-size: 14px; color: rgba(255, 255, 255, 0.72); }
+.kit-crt { position: absolute; background: #3b3f46; border: 8px solid var(--ink); border-radius: 26px; padding: 26px 28px 70px;
+  box-shadow: 12px 14px 0 rgba(59, 42, 32, 0.25); }
+.kit-crt::before { content: ""; position: absolute; left: 50%; bottom: -46px; width: 220px; height: 30px; margin-left: -110px; border: 8px solid var(--ink); border-top: 0;
+  border-radius: 0 0 16px 16px; background: #2b2e33; }
+.kit-crt::after { content: ""; position: absolute; right: 40px; bottom: 26px; width: 22px; height: 22px; border-radius: 50%; background: #2fbf71; }
+.kit-tv-flash, .kit-phone .kit-tv-flash, .kit-crt .kit-tv-flash { position: absolute; left: 34px; right: 34px; top: 30px; bottom: 54px; border-radius: 22px; background: #fff; opacity: 0; pointer-events: none; }
+
+.kit-phone .kit-tv-flash { left: 14px; right: 14px; top: 30px; bottom: 44px; border-radius: 22px; }
+.kit-crt .kit-tv-flash { left: 28px; right: 28px; top: 26px; bottom: 70px; border-radius: 14px; }

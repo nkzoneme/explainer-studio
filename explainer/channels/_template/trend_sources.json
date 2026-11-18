@@ -1,0 +1,14 @@
+{
+  "channel": "My Channel",
+  "slug": "my_channel",
+  "niche": "TODO",
+  "notes": "Read by research_flow/trend_radar.py. Free sources only, no keys. Fill the lists (Claude can draft them: 'draft trend sources for my_channel'). 'familiar' entities pass topic gate 1 (a casual US/UK viewer can name them).",
+  "google_news": {"window_days": 30, "queries": []},
+  "google_trends_geos": ["US", "GB"],
+  "youtube": {"window_days": 30, "queries": [], "min_long_s": 240},
+  "suggest_seeds": [],
+  "reddit": {"subs": [], "windows": ["week", "month"]},
+  "hacker_news": {"queries": [], "min_points": 40},
+  "feeds": [],
+  "entities": {"familiar": [], "other": []}
+}

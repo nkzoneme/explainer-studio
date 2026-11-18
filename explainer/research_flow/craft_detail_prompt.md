@@ -1,0 +1,10 @@
+You are a senior motion designer and sound designer reverse-engineering the CRAFT of an animated explainer video, at the level of small details. Watch picture and listen to audio carefully. Answer in English with timestamps (mm:ss.s where useful). Be concrete and exhaustive; do not summarize the topic.
+
+A. Sound design: list EVERY distinct sound effect you hear in the first 90 seconds (or whole video if shorter) as a table: time | sound (describe it: pop, whoosh, click, ding, cash register, paper, scribble, impact, riser...) | what visual event it is synced to | loudness relative to voice (quieter/equal) | timing (before/on/after the visual event, approx ms). Then: is there music? genre, when it starts/stops/ducks; room tone; how transitions sound; how dense SFX are per minute.
+B. Character acting: does any character's mouth move with speech? how (open/closed shapes, lip shapes per syllable, or loudness flaps)? blinks (how often)? eyebrows, head tilts, breathing/idle motion, hand gestures and how they relate to words; pose changes (swap vs animated); squash & stretch; anticipation and follow-through.
+C. Object motion: how things enter and exit (pop with overshoot, slide, draw-on, wipe, fade, drop with bounce, scale from 0), typical durations, easing feel, secondary motion (wobble, shadows, dust puffs, sparkle, motion lines), staggering of groups, how often something moves on screen (any frames fully static > 1 s?).
+D. Camera & transitions: pans/zooms/push-ins per scene, whip pans, match cuts, wipes, how scenes connect (continuity of objects across cuts).
+E. Text & graphics: on-screen text style, captions (yes/no, style, how many words at once, animation), numbers/counters, charts, arrows/lines drawn, highlighting (circles, underlines, color pops).
+F. Visual style: palette, line weight, textures/grain, shadows, background treatment, depth layers/parallax.
+G. List the 10 most effective micro-techniques in this video that a team could copy, each with one timestamp example and a one-line implementation hint (for an HTML/GSAP renderer).
+H. List flaws or cheap-looking moments with timestamps.

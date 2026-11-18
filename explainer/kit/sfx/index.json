@@ -1,0 +1,562 @@
+{
+ "pop_1": {
+  "file": "sfx/pop_1.wav",
+  "role": "pop",
+  "dur": 0.1,
+  "rms_db": -23.9,
+  "note": "short pluck pop",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-pluck-001"
+ },
+ "pop_2": {
+  "file": "sfx/pop_2.wav",
+  "role": "pop",
+  "dur": 0.13,
+  "rms_db": -23.3,
+  "note": "short pluck pop, variant",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-pluck-002"
+ },
+ "pop_3": {
+  "file": "sfx/pop_3.wav",
+  "role": "pop",
+  "dur": 0.188,
+  "rms_db": -21.7,
+  "note": "low soft drop pop",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-drop-002"
+ },
+ "pop_bubble": {
+  "file": "sfx/pop_bubble.wav",
+  "role": "pop",
+  "dur": 0.23,
+  "rms_db": -15.9,
+  "note": "bubble pop",
+  "license": "CC0-1.0",
+  "author": "rubberduck",
+  "source_id": "rubberduck-water-40-bubble-02"
+ },
+ "boing_1": {
+  "file": "sfx/boing_1.wav",
+  "role": "pop",
+  "dur": 0.305,
+  "rms_db": -24.2,
+  "note": "spring up",
+  "license": "CC0-1.0",
+  "author": "EZduzziteh",
+  "source_id": "ez-boings-bing-01-0"
+ },
+ "boing_2": {
+  "file": "sfx/boing_2.wav",
+  "role": "pop",
+  "dur": 0.33,
+  "rms_db": -21.8,
+  "note": "spring up, variant",
+  "license": "CC0-1.0",
+  "author": "EZduzziteh",
+  "source_id": "ez-boings-bing-02"
+ },
+ "swish_1": {
+  "file": "sfx/swish_1.wav",
+  "role": "whoosh",
+  "dur": 0.11,
+  "rms_db": -12.5,
+  "note": "short swish",
+  "license": "CC0-1.0",
+  "author": "artisticdude",
+  "source_id": "artisticdude-swishes-swish-3"
+ },
+ "swish_2": {
+  "file": "sfx/swish_2.wav",
+  "role": "whoosh",
+  "dur": 0.1,
+  "rms_db": -15.7,
+  "note": "short swish",
+  "license": "CC0-1.0",
+  "author": "artisticdude",
+  "source_id": "artisticdude-swishes-swish-5"
+ },
+ "swish_3": {
+  "file": "sfx/swish_3.wav",
+  "role": "whoosh",
+  "dur": 0.12,
+  "rms_db": -14.1,
+  "note": "throw swish",
+  "license": "CC0-1.0",
+  "author": "artisticdude",
+  "source_id": "artisticdude-swishes-swish-7"
+ },
+ "swish_4": {
+  "file": "sfx/swish_4.wav",
+  "role": "whoosh",
+  "dur": 0.13,
+  "rms_db": -16.2,
+  "note": "longest swish, scene transition",
+  "license": "CC0-1.0",
+  "author": "artisticdude",
+  "source_id": "artisticdude-swishes-swish-9"
+ },
+ "whoosh_air": {
+  "file": "sfx/whoosh_air.wav",
+  "role": "whoosh",
+  "dur": 0.24,
+  "rms_db": -20.1,
+  "note": "air burst",
+  "license": "CC0-1.0",
+  "author": "rubberduck",
+  "source_id": "rubberduck-general-100-2-sfx100v2-air-03"
+ },
+ "riser_air": {
+  "file": "sfx/riser_air.wav",
+  "role": "riser",
+  "dur": 1.0,
+  "rms_db": -17.9,
+  "note": "0.9 s air swell, use before a reveal",
+  "license": "CC0-1.0",
+  "author": "rubberduck",
+  "source_id": "rubberduck-general-100-2-sfx100v2-air-02"
+ },
+ "zoom_in": {
+  "file": "sfx/zoom_in.wav",
+  "role": "whoosh",
+  "dur": 0.226,
+  "rms_db": -11.4,
+  "note": "UI grow / zoom in",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-maximize-002"
+ },
+ "zoom_out": {
+  "file": "sfx/zoom_out.wav",
+  "role": "whoosh",
+  "dur": 0.258,
+  "rms_db": -12.4,
+  "note": "UI shrink / zoom out",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-minimize-002"
+ },
+ "click_1": {
+  "file": "sfx/click_1.wav",
+  "role": "click",
+  "dur": 0.097,
+  "rms_db": -28.0,
+  "note": "UI click",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-click-001"
+ },
+ "tick_1": {
+  "file": "sfx/tick_1.wav",
+  "role": "tick",
+  "dur": 0.03,
+  "rms_db": -21.9,
+  "note": "counter tick",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-tick-001"
+ },
+ "tick_2": {
+  "file": "sfx/tick_2.wav",
+  "role": "tick",
+  "dur": 0.02,
+  "rms_db": -18.5,
+  "note": "counter tick, variant",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-tick-002"
+ },
+ "key_1": {
+  "file": "sfx/key_1.wav",
+  "role": "tick",
+  "dur": 0.2,
+  "rms_db": -32.9,
+  "note": "key / switch press",
+  "license": "CC0-1.0",
+  "author": "rubberduck",
+  "source_id": "rubberduck-general-100-2-sfx100v2-switch-01"
+ },
+ "key_2": {
+  "file": "sfx/key_2.wav",
+  "role": "tick",
+  "dur": 0.17,
+  "rms_db": -30.0,
+  "note": "key / switch press, variant",
+  "license": "CC0-1.0",
+  "author": "rubberduck",
+  "source_id": "rubberduck-general-100-2-sfx100v2-switch-02"
+ },
+ "metal_click": {
+  "file": "sfx/metal_click.wav",
+  "role": "click",
+  "dur": 0.3,
+  "rms_db": -28.2,
+  "note": "mechanical click (gate, part snapping in)",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-rpg-metal-click"
+ },
+ "latch": {
+  "file": "sfx/latch.wav",
+  "role": "click",
+  "dur": 0.16,
+  "rms_db": -22.9,
+  "note": "latch / lock",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-rpg-metal-latch"
+ },
+ "camera": {
+  "file": "sfx/camera.wav",
+  "role": "click",
+  "dur": 0.34,
+  "rms_db": -26.6,
+  "note": "camera shutter (photo card appears)",
+  "license": "CC0-1.0",
+  "author": "OwlishMedia",
+  "source_id": "owlish-home-202-camera-camera-01"
+ },
+ "ding_1": {
+  "file": "sfx/ding_1.wav",
+  "role": "ding",
+  "dur": 0.32,
+  "rms_db": -17.2,
+  "note": "bright single ding",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-confirmation-003"
+ },
+ "ding_2": {
+  "file": "sfx/ding_2.wav",
+  "role": "ding",
+  "dur": 0.53,
+  "rms_db": -16.9,
+  "note": "two-note confirm",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-confirmation-002"
+ },
+ "bell": {
+  "file": "sfx/bell.wav",
+  "role": "ding",
+  "dur": 1.2,
+  "rms_db": -27.2,
+  "note": "bell with ring-out",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-bell-heavy-000"
+ },
+ "glass_ting": {
+  "file": "sfx/glass_ting.wav",
+  "role": "ding",
+  "dur": 0.207,
+  "rms_db": -23.4,
+  "note": "tiny glass ting (deliberately small things)",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-glass-light-001"
+ },
+ "sting_hit": {
+  "file": "sfx/sting_hit.wav",
+  "role": "sting",
+  "dur": 0.71,
+  "rms_db": -14.9,
+  "note": "short musical reveal sting",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-jingles-jingles-hit03"
+ },
+ "sting_pizz": {
+  "file": "sfx/sting_pizz.wav",
+  "role": "sting",
+  "dur": 0.491,
+  "rms_db": -14.4,
+  "note": "short pizzicato sting",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-jingles-jingles-pizzi00"
+ },
+ "coin_1": {
+  "file": "sfx/coin_1.wav",
+  "role": "coin",
+  "dur": 0.18,
+  "rms_db": -23.0,
+  "note": "coin",
+  "license": "CC0-1.0",
+  "author": "OwlishMedia",
+  "source_id": "owlish-home-202-money-money-02"
+ },
+ "coin_2": {
+  "file": "sfx/coin_2.wav",
+  "role": "coin",
+  "dur": 0.23,
+  "rms_db": -18.4,
+  "note": "coin",
+  "license": "CC0-1.0",
+  "author": "OwlishMedia",
+  "source_id": "owlish-home-202-money-money-07"
+ },
+ "coin_3": {
+  "file": "sfx/coin_3.wav",
+  "role": "coin",
+  "dur": 0.21,
+  "rms_db": -19.2,
+  "note": "coin",
+  "license": "CC0-1.0",
+  "author": "OwlishMedia",
+  "source_id": "owlish-home-202-money-money-09"
+ },
+ "coin_4": {
+  "file": "sfx/coin_4.wav",
+  "role": "coin",
+  "dur": 0.159,
+  "rms_db": -19.7,
+  "note": "coin",
+  "license": "CC0-1.0",
+  "author": "OwlishMedia",
+  "source_id": "owlish-home-202-money-money-12"
+ },
+ "coins_handful": {
+  "file": "sfx/coins_handful.wav",
+  "role": "coin",
+  "dur": 0.29,
+  "rms_db": -24.7,
+  "note": "handful of coins",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-rpg-handle-coins2"
+ },
+ "coins_pour": {
+  "file": "sfx/coins_pour.wav",
+  "role": "coin",
+  "dur": 0.62,
+  "rms_db": -31.2,
+  "note": "coins pouring (0.6 s)",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-rpg-handle-coins"
+ },
+ "paper_place": {
+  "file": "sfx/paper_place.wav",
+  "role": "paper",
+  "dur": 0.2,
+  "rms_db": -20.4,
+  "note": "card / document slaps down",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-rpg-book-place1"
+ },
+ "page_flip": {
+  "file": "sfx/page_flip.wav",
+  "role": "paper",
+  "dur": 0.37,
+  "rms_db": -29.9,
+  "note": "page flip",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-rpg-book-flip2"
+ },
+ "paper_unroll": {
+  "file": "sfx/paper_unroll.wav",
+  "role": "paper",
+  "dur": 0.13,
+  "rms_db": -26.1,
+  "note": "short paper movement",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-rpg-book-flip1"
+ },
+ "scribble_long": {
+  "file": "sfx/scribble_long.wav",
+  "role": "scribble",
+  "dur": 1.18,
+  "rms_db": -27.7,
+  "note": "1.1 s pencil strokes",
+  "license": "CC0-1.0",
+  "author": "OwlishMedia",
+  "source_id": "owlish-home-202-paper-stationery-stationery-07"
+ },
+ "scribble_mid": {
+  "file": "sfx/scribble_mid.wav",
+  "role": "scribble",
+  "dur": 0.99,
+  "rms_db": -23.0,
+  "note": "0.9 s pencil strokes",
+  "license": "CC0-1.0",
+  "author": "OwlishMedia",
+  "source_id": "owlish-home-202-paper-stationery-stationery-06"
+ },
+ "scribble_short": {
+  "file": "sfx/scribble_short.wav",
+  "role": "scribble",
+  "dur": 0.56,
+  "rms_db": -22.5,
+  "note": "0.5 s pencil strokes",
+  "license": "CC0-1.0",
+  "author": "OwlishMedia",
+  "source_id": "owlish-home-202-paper-stationery-stationery-05"
+ },
+ "marker": {
+  "file": "sfx/marker.wav",
+  "role": "scribble",
+  "dur": 0.43,
+  "rms_db": -23.9,
+  "note": "0.4 s marker stroke (circle / underline)",
+  "license": "CC0-1.0",
+  "author": "OwlishMedia",
+  "source_id": "owlish-home-202-paper-stationery-stationery-10"
+ },
+ "erase": {
+  "file": "sfx/erase.wav",
+  "role": "scribble",
+  "dur": 0.59,
+  "rms_db": -20.6,
+  "note": "eraser rub",
+  "license": "CC0-1.0",
+  "author": "Fupi",
+  "source_id": "fupi-erase-erase-0"
+ },
+ "thud_soft": {
+  "file": "sfx/thud_soft.wav",
+  "role": "impact",
+  "dur": 0.18,
+  "rms_db": -16.9,
+  "note": "soft landing",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-soft-medium-001"
+ },
+ "thud_heavy": {
+  "file": "sfx/thud_heavy.wav",
+  "role": "impact",
+  "dur": 0.52,
+  "rms_db": -19.4,
+  "note": "heavy soft landing",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-soft-heavy-000"
+ },
+ "thud_wood": {
+  "file": "sfx/thud_wood.wav",
+  "role": "impact",
+  "dur": 0.31,
+  "rms_db": -21.7,
+  "note": "wooden object lands",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-wood-heavy-000"
+ },
+ "thud_metal": {
+  "file": "sfx/thud_metal.wav",
+  "role": "impact",
+  "dur": 0.356,
+  "rms_db": -25.5,
+  "note": "metal object lands",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-metal-heavy-001"
+ },
+ "tap_light": {
+  "file": "sfx/tap_light.wav",
+  "role": "impact",
+  "dur": 0.115,
+  "rms_db": -22.0,
+  "note": "light tap (small object lands)",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-generic-light-001"
+ },
+ "stamp_1": {
+  "file": "sfx/stamp_1.wav",
+  "role": "stamp",
+  "dur": 0.38,
+  "rms_db": -17.8,
+  "note": "stamp / red X slam",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-punch-heavy-001"
+ },
+ "stamp_2": {
+  "file": "sfx/stamp_2.wav",
+  "role": "stamp",
+  "dur": 0.38,
+  "rms_db": -17.9,
+  "note": "big stamp, variant",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-punch-heavy-004"
+ },
+ "stamp_wood": {
+  "file": "sfx/stamp_wood.wav",
+  "role": "stamp",
+  "dur": 0.31,
+  "rms_db": -20.9,
+  "note": "rubber-stamp on desk",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-wood-heavy-002"
+ },
+ "flop": {
+  "file": "sfx/flop.wav",
+  "role": "impact",
+  "dur": 0.489,
+  "rms_db": -24.7,
+  "note": "thing falls flat",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-impact-impact-plate-heavy-000"
+ },
+ "error_buzz": {
+  "file": "sfx/error_buzz.wav",
+  "role": "error",
+  "dur": 0.24,
+  "rms_db": -17.0,
+  "note": "low error buzz",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-error-006"
+ },
+ "error_double": {
+  "file": "sfx/error_double.wav",
+  "role": "error",
+  "dur": 0.18,
+  "rms_db": -16.3,
+  "note": "double low error",
+  "license": "CC0-1.0",
+  "author": "Kenney",
+  "source_id": "kenney-interface-error-005"
+ },
+ "splat": {
+  "file": "sfx/splat.wav",
+  "role": "impact",
+  "dur": 0.41,
+  "rms_db": -26.6,
+  "note": "ink splat",
+  "license": "CC0-1.0",
+  "author": "rubberduck",
+  "source_id": "rubberduck-water-40-slime-03"
+ },
+ "slide_whistle_down": {
+  "file": "sfx/slide_whistle_down.wav",
+  "role": "comedy",
+  "dur": 1.13,
+  "rms_db": -12.5,
+  "note": "CC-BY: falling slide whistle (fail gag)",
+  "license": "CC-BY-3.0",
+  "author": "Joe DeShon (joedeshon)",
+  "source_id": "joedeshon-slide-whistle-79671-joedeshon-slide-whistle-down-01"
+ },
+ "loop_machine": {
+  "file": "sfx/loop_machine.wav",
+  "role": "loop",
+  "dur": 7.558,
+  "rms_db": -13.9,
+  "note": "conveyor / machine bed, keep very low",
+  "license": "CC0-1.0",
+  "author": "rubberduck",
+  "source_id": "rubberduck-general-100-2-sfx100v2-loop-machine-01"
+ }
+}

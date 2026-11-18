@@ -1,0 +1,25 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+# production output stays local
+explainer/film/
+explainer/vo/
+explainer/out/
+explainer/state/
+explainer/logs/
+explainer/brand/
+explainer/research_flow/cache/
+explainer/kit/music/
+explainer/kit/sfx_v2/raw/
+explainer/kit/sfx_v2/std/
+explainer/kit/sfx_v2/index.js
+explainer/kit/sfx_v2/index.json
+explainer/kit/sfx_v2/palette.js
+# real channels are private; only the template is tracked
+explainer/channels/*/
+!explainer/channels/_template/
+explainer/shorts/styles/*.json
+!explainer/shorts/styles/_example.json
+.playwright-mcp/

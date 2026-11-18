@@ -1,0 +1,14 @@
+{
+  "channel": "My Channel",
+  "slug": "my_channel",
+  "niche": "TODO: one line, e.g. 'how famous brands make money'",
+  "version": "TODO: date built",
+  "status": "draft: run the skill explainer-channel-style to fill this from 5-12 competitors",
+  "refresh_due": "TODO",
+  "evidence": "channels/my_channel/research/EVIDENCE.md",
+  "brand": {
+    "shorts_style": "shorts/styles/my_channel.json",
+    "note": "palette, fonts, voice, avatar and host poses live in the Shorts style json; not repeated here"
+  },
+  "publish_slot": { "long_utc": "TODO e.g. 15:00", "shorts": "same day as the long video, 1 h later" }
+}

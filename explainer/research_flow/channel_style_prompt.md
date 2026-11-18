@@ -1,0 +1,12 @@
+You are measuring the editing style of a successful YouTube video so a new channel in the same niche can choose its own style. Watch the whole video, picture and sound. Answer in English, short, with timestamps (mm:ss). Give your best estimate for every number and say "estimate". Do not describe the story beyond what a line needs.
+
+1. PRESENTER: Is a real or drawn person shown talking to the camera? Share of runtime they are on screen (%), and in which modes: talking head / host inside the scene acting / small corner reactor / voice only. Longest single stretch on screen (s). Where in the video they appear (hook, transitions, ending).
+2. PICTURE MIX: share of runtime (%, adds to about 100) for: drawn or animated scenes with characters; full-frame diagrams/charts/numbers; maps; real stock or archival footage; real photos; screenshots of documents, news headlines, code, tweets or websites; 3D renders; text-only cards; talking head. Name the 2 most used.
+3. VISUAL SYSTEM: background style (flat colour / textured / real), recurring sets or locations, palette (3-5 main colours, light or dark), how real media is framed (full frame / inside a frame or prop / picture-in-picture), camera moves (push-ins, pans, none), transitions (hard cut / whip / zoom / wipe), 2D or 3D, how many depth layers.
+4. TYPOGRAPHY: on-screen text style (font look, case, colour), how often text appears, burned-in word captions yes/no, chapter title cards yes/no (style and how many), lower-thirds or labels.
+5. SOUND: music bed (none / occasional / continuous; genre; changes per chapter?), sound effects density (none / sparse under 10 per minute / medium 10-40 / dense over 40) and what kinds (whooshes, pops, typing, impacts, risers), any deliberate silences.
+6. HOOK: exact first sentence and when it ends; when the title's promise is spoken; when the story or body starts; what frame 0 shows; any channel intro, logo sting or sponsor in the first 60 s.
+7. STRUCTURE: chapter list with start times; how the middle re-hooks; sponsor read position and length (if any).
+8. ENDING: last 30 s, line by line in summary: callback, summary, next-video pitch, subscribe ask, end screen length and layout.
+9. WHAT MAKES IT DISTINCT: three things a viewer would recognise this channel by with the sound off, and one thing it does that many channels in this niche do not.
+10. RISKS FOR A NEW FACELESS ANIMATED CHANNEL copying this: what would look like a clone, and what would be expensive to copy.
